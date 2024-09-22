@@ -1,6 +1,8 @@
 import pytest
 from praktikum.bun import Bun
 import data
+import logging
+logging.basicConfig(level=logging.INFO)
 
 
 class TestBun:
@@ -16,12 +18,12 @@ class TestBun:
         assert bun.name == expected_name and bun.price == expected_price, \
             (f"Ожидалось имя: {expected_name}, но получено: {bun.name}" and
              f"Ожидалась цена: {expected_price}, но получено: {bun.price}")
-        print(f"\nТестируемая булочка: имя = {bun.name}, цена = {bun.price}")
+        logging.info(f"\nТестируемая булочка: имя = {bun.name}, цена = {bun.price}")
 
     def test_get_name_bun_true(self, create_bun):
         assert create_bun.get_name() == create_bun.name
-        print(f'\nИмя булочки: {create_bun.name}')
+        logging.info(f'\nИмя булочки: {create_bun.name}')
 
     def test_get_price_bun_true(self, create_bun):
         assert create_bun.get_price() == create_bun.price
-        print(f'\nЦена булочки: {create_bun.price}')
+        logging.info(f'\nЦена булочки: {create_bun.price}')
